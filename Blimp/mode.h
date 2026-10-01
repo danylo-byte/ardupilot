@@ -20,6 +20,7 @@ public:
         RTL =           4,  // rtl
         AUTO =          5,  // auto
         HOLD =          6,  // hold (stop moving)
+        FOLLOW =        7,  // follow a moving target
         // Mode number 30 reserved for "offboard" for external/lua control.
     };
 
@@ -311,4 +312,32 @@ protected:
 private:
 
 };
+
+
+
+class ModeFollow : public Mode
+{
+
+public:
+    // inherit constructor
+    using Mode::Mode;
+
+    virtual bool init(bool ignore_checks) override;
+    virtual void run() override;
+
+    bool requires_GPS() const override { return true; }
+    bool has_manual_throttle() const override { return false; }
+    bool allows_arming(bool from_gcs) const override { return false; };
+    bool is_autopilot() const override { return true; }
+
+protected:
+
+    const char *name() const override { return "Follow"; }
+    const char *name4() const override { return "FOLL"; }
+
+    Mode::Number number() const override { return Mode::Number::FOLLOW; }
+
+};
+
+
 
