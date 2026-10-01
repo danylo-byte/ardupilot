@@ -285,6 +285,11 @@ public:
     AP_Int32 fs_options;
 
     AP_Float fs_gcs_timeout;
+    #if AP_FOLLOW_ENABLED
+    // follow
+    AP_Follow follow;
+    #endif
 };
+
 
 extern const AP_Param::Info        var_info[];

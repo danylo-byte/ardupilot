@@ -52,6 +52,7 @@
 
 #include <AP_Mission/AP_Mission.h>                              // Mission command library
 #include <AP_Mission/AP_Mission_ChangeDetector.h>               // Mission command change detection
+#include <AP_Follow/AP_Follow.h>
 
 // Configuration
 #include "defines.h"

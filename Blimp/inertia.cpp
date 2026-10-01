@@ -23,4 +23,8 @@ void Blimp::read_inertia()
         // if home has not been set yet we treat alt-above-origin as alt-above-home
         current_loc.set_alt_cm(alt_above_origin_cm, Location::AltFrame::ABOVE_HOME);
     }
+    #if AP_FOLLOW_ENABLED
+    g2.follow.update_estimates();
+    #endif
+
 }

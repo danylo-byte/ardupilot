@@ -407,6 +407,11 @@ const AP_Param::GroupInfo ParametersG2::var_info[] = {
     // @Increment: 1
     // @User: Standard
     AP_GROUPINFO("FS_GCS_TIMEOUT", 42, ParametersG2, fs_gcs_timeout, 5),
+    #if AP_FOLLOW_ENABLED
+    // @Group: FOLL
+    // @Path: ../libraries/AP_Follow/AP_Follow.cpp
+    AP_SUBGROUPINFO(follow, "FOLL", 43, ParametersG2, AP_Follow),
+    #endif
 
     AP_GROUPEND
 };
